@@ -19,8 +19,8 @@ Create `secrets.yaml` in the project root:
 
 ```yaml
 cmems:
-  username: "rex026083@gmail.com"
-  password: "im4ZjW@8Q.NWM7_"
+  username: "your_username"
+  password: "your_password"
 ```
 
 Model and data settings are in `config.yaml`.
