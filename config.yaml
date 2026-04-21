@@ -1,0 +1,56 @@
+# Adriatic Sea Current Prediction Configuration
+
+# Data settings
+spatial_size: [64, 64] # Height x Width of spatial grid
+# n_days removed - using real CMEMS data only
+sequence_length: 7 # Input sequence length (days)
+prediction_horizon: 1 # Days to predict ahead
+
+# Model architecture
+hidden_dims: [64, 32] # ConvLSTM hidden dimensions
+kernel_size: 3
+
+# Training parameters
+batch_size: 16
+learning_rate: 0.001
+epochs: 50
+early_stopping_patience: 10
+
+# Data paths
+data_dir: "./data"
+model_dir: "./models"
+log_dir: "./logs"
+
+# Working CMEMS Dataset IDs (tested and confirmed)
+cmems_datasets:
+  currents: "cmems_mod_med_phy-cur_anfc_detided_4.2km_P1D-m" # uo, vo (U/V currents)
+  temperature: "cmems_mod_med_phy-tem_anfc_4.2km_P1D-m" # thetao (temperature)
+  ssh: "cmems_mod_med_phy-ssh_anfc_4.2km_P1D-m" # zos (sea surface height)
+  wind: "cmems_obs-wind_med_phy_nrt_l3-s1a-sar-asc-0.01deg_P1D-i" # wind_speed, wind_direction
+
+date_range:
+  start_date: "2023-01-01"
+  end_date: "2024-12-31"
+
+# Spatial domain for real data (Adriatic Sea)
+spatial_bounds:
+  lon_min: 12.0
+  lon_max: 20.0
+  lat_min: 40.0
+  lat_max: 45.9
+
+# Depth range (meters) - min and max the same
+depth:
+  min: 1.2
+  max: 1.2
+
+# Variables mapping for each dataset
+variable_mapping:
+  currents: ["uo_detided", "vo_detided"] # Eastward/Northward velocity
+  temperature: ["thetao"] # Sea water temperature
+  ssh: ["zos"] # Sea surface height
+  wind: ["wind_speed", "wind_to_direction"] # Wind speed and direction
+
+# Normalization
+save_stats: true
+stats_file: "normalization_stats.pkl"
