@@ -23,14 +23,14 @@ log_dir: "./logs"
 
 # Working CMEMS Dataset IDs (tested and confirmed)
 cmems_datasets:
-  currents: "cmems_mod_med_phy-cur_anfc_detided_4.2km_P1D-m" # uo, vo (U/V currents)
-  temperature: "cmems_mod_med_phy-tem_anfc_4.2km_P1D-m" # thetao (temperature)
-  ssh: "cmems_mod_med_phy-ssh_anfc_4.2km_P1D-m" # zos (sea surface height)
+  currents: "cmems_mod_med_phy-cur_anfc_detided-4.2km_P1D-m" # uo, vo (U/V currents)
+  temperature: "cmems_mod_med_phy-tem_anfc-4.2km_P1D-m" # thetao (temperature)
+  ssh: "cmems_mod_med_phy-ssh_anfc-4.2km_P1D-m" # zos (sea surface height)
   wind: "cmems_obs-wind_med_phy_nrt_l3-s1a-sar-asc-0.01deg_P1D-i" # wind_speed, wind_direction
 
 date_range:
-  start_date: "2023-01-01"
-  end_date: "2024-12-31"
+  start_date: "2024-03-30"
+  end_date: "2026-04-29"
 
 # Spatial domain for real data (Adriatic Sea)
 spatial_bounds:

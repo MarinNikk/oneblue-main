@@ -9,7 +9,7 @@ from rich.console import Console
 from rich.table import Table
 from torch.utils.data import DataLoader
 
-from copernicus_data import CopernicusDataHandler
+from src.copernicus_data import CopernicusDataHandler
 from src.configs.config import Config
 from src.model.adriatic_dataset import (
     AdriaticDataset,

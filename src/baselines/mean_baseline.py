@@ -11,7 +11,7 @@ Physics intuition: Ocean currents have inertia and momentum, so
 
 import numpy as np
 
-from evaluations.evaluation_numpy import calculate_metrics
+from src.evaluations.evaluation_numpy import calculate_metrics
 
 
 class SevenDayMeanBaseline:

@@ -6,7 +6,7 @@ import numpy as np
 import typer
 from rich.console import Console
 
-from copernicus_data import CopernicusDataHandler
+from src.copernicus_data import CopernicusDataHandler
 from src.configs.config import Config
 
 
@@ -104,11 +104,18 @@ def test_download():
 
         console.print("[green]Available variables:[/green]")
         actual_variables = []
-        for var in info.variables:
-            var_name = getattr(var, "short_name", "unknown")
-            var_long = getattr(var, "long_name", "N/A")
-            actual_variables.append(var_name)
-            console.print(f"[cyan]• {var_name}: {var_long}[/cyan]")
+
+        for product in info.products:
+            for dataset in product.datasets:
+                for version in dataset.versions:
+                    for part in version.parts:
+                        for service in part.services:
+                            for var in service.variables:
+                                var_name = getattr(var, "short_name", "unknown")
+                                var_long = getattr(var, "standard_name", "N/A")
+
+                                actual_variables.append(var_name)
+                                console.print(f"[cyan]• {var_name}: {var_long}[/cyan]")
 
         # Try to find current-related variables
         current_vars = [
