@@ -1,0 +1,19 @@
+{
+  "status": "OK",
+  "grid_msgs": 10,
+  "vec_msgs": 10,
+  "grid": {
+    "width": 65,
+    "height": 48,
+    "resolution_m": 1.0,
+    "sea_cells": 1210,
+    "land_cells": 1910,
+    "occ_min": 1,
+    "occ_max": 100,
+    "frame": "map"
+  },
+  "vectors": {
+    "arrows": 315,
+    "frame": "map"
+  }
+}
